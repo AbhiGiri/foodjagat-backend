@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get("/health", async(req: Request, res: Response) => res.json({ message: "Hello FoodJagat.com ." }));
+app.get("/health", async(req: Request, res: Response) => res.json({ message: "Hello Foodjagat.com ." }));
 
 app.use("/api/my/user", myUserRouter);
 

@@ -52,7 +52,7 @@ const updateCurrentUser = async(req: Request, res: Response) => {
     user.country = country;
 
     await user.save();
-    res.send(user);
+    res.status(201).send(user);
 
   } catch (error) {
     console.log(error)

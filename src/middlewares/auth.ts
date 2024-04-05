@@ -44,7 +44,6 @@ export const jwtParse = async(req: Request, res: Response, next: NextFunction) =
 
   } catch (error) {
     return res.sendStatus(401)
-    
   }
 
 };

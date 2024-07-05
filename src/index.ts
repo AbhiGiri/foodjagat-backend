@@ -4,8 +4,9 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import myUserRouter from "./routes/MyUserRoute";
 import {v2 as cloudinary} from "cloudinary";
-import myRestaurantRouter from "./routes/MyRestaurantRoute";
-import restaurantRouter from "./routes/RestaurantRoute";
+import myRestaurantRoute from "./routes/MyRestaurantRoute";
+import restaurantRoute from "./routes/RestaurantRoute";
+import orderRoute from "./routes/OrderRoute";
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(() => console.log(`connected to DB`))
@@ -25,7 +26,8 @@ app.use(cors());
 app.get("/health", async(req: Request, res: Response) => res.json({ message: "Hello Foodjagat.com ." }));
 
 app.use("/api/my/user", myUserRouter);
-app.use("/api/my/restaurant", myRestaurantRouter);
-app.use("/api/restaurant", restaurantRouter);
+app.use("/api/my/restaurant", myRestaurantRoute);
+app.use("/api/restaurant", restaurantRoute);
+app.use("/api/order", orderRoute);
 
 app.listen(5000, () =>  console.log("server runs at port 5000"));
